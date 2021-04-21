@@ -19,6 +19,23 @@
 			</div>
         </div>
     </div>
+	<script>
+    var express = require('express');
+    var router = express.Router();
+
+// Tables
+router.get('/tables', function (req, res) {
+  res.send('Tables');
+})
+
+// Reservation
+router.get('/reserve', function (req, res) {
+  res.send('Reservations');
+})
+
+module.exports = router;
+
+    </script>
     <footer class="footer">
         <div class="container">
               <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
