@@ -40,12 +40,21 @@ const reservations = [
 
     }
 ]
+const waitlist=[
+    {
+        name:'John',
+        id:23,
+        email:'john@gmail.com',
+        phone:'3333333',
+
+    },
+]
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
 app.get('/reserve', (req, res) => res.sendFile(path.join(__dirname, 'reserve.html')));
 app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html')));
-
 app.get('/api/tables', (req, res) => res.json(reservations));
+app.get('/api/waitlist', (req, res) => res.json(waitlist));
 
 
 
