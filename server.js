@@ -1,3 +1,4 @@
+const { reverse } = require('dns');
 const express = require('express');
 const path = require('path');
 const Reservations = require('./Reservations');
@@ -56,6 +57,24 @@ app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html'
 app.get('/api/tables', (req, res) => res.json(reservations));
 app.get('/api/waitlist', (req, res) => res.json(waitlist));
 
+
+
+ 
+app.post('/api/tables', (req, res) => {
+    const newreservation = req.body;
+    console.log(newreservation)
+    if (reservations.length < 5) {
+        
+        reservations.push(newreservation);
+        return res.json(true);
+    } 
+    else {
+        waitlist.push(newreservation);
+        return res.json(false);
+    }
+   
+    
+})
 
 
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
